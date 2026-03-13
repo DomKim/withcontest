@@ -47,8 +47,9 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .live-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .divider{color:var(--g700);font-size:.6rem}
-.topbar-right{display:flex;gap:14px}
+.topbar-right{display:flex;gap:14px;align-items:center}
 .topbar-right a{color:var(--g500);transition:color .2s}.topbar-right a:hover{color:var(--gold-l)}
+.btn-gold-xs{font-size:.65rem;font-weight:700;color:var(--white)!important;background:var(--gold);padding:3px 10px;border-radius:100px;margin-left:4px}
 
 /* ============================================
    HEADER
@@ -72,18 +73,22 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .btn-ghost-w{font-size:.88rem;font-weight:500;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.2);padding:10px 24px;border-radius:100px;transition:all .2s}
 .btn-ghost-w:hover{color:#fff;border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.05)}
 
+.btn-ghost-sm{font-size:.72rem;font-weight:500;color:var(--g600);padding:5px 10px;border-radius:100px;white-space:nowrap}
+.btn-gold-sm{font-size:.72rem;font-weight:700;color:var(--white);background:var(--gold);padding:5px 12px;border-radius:100px;white-space:nowrap}
 .mobile-btns{display:none;align-items:center;gap:4px}
 .mobile-search-btn{display:flex;align-items:center;justify-content:center;background:none;border:none;color:var(--g700);cursor:pointer;padding:6px}
 .mobile-toggle{display:flex;flex-direction:column;gap:5px;padding:8px}
 .mobile-toggle span{display:block;width:18px;height:2px;background:var(--g700);border-radius:1px}
 
-/* 모바일 검색 오버레이 */
-.mobile-search-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:999;align-items:flex-start;justify-content:center;padding-top:80px;backdrop-filter:blur(4px)}
-.mobile-search-overlay.open{display:flex}
-.mobile-search-box{display:flex;align-items:center;width:90%;max-width:480px;background:#fff;border-radius:var(--r);padding:6px 6px 6px 20px;box-shadow:0 12px 40px rgba(0,0,0,.2)}
+/* 모바일 검색 오버레이 — liquid glass */
+.mobile-search-overlay{position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;display:flex;align-items:flex-start;justify-content:center;padding-top:90px;background:rgba(0,0,0,0);backdrop-filter:blur(0px);-webkit-backdrop-filter:blur(0px);opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.22,1,.36,1),background .35s cubic-bezier(.22,1,.36,1),backdrop-filter .4s ease}
+.mobile-search-overlay.open{background:rgba(15,23,41,.35);backdrop-filter:blur(24px) saturate(1.8);-webkit-backdrop-filter:blur(24px) saturate(1.8);opacity:1;pointer-events:auto}
+.mobile-search-box{display:flex;align-items:center;width:90%;max-width:480px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.6);border-radius:20px;padding:8px 8px 8px 22px;box-shadow:0 8px 40px rgba(0,0,0,.12),0 1.5px 0 rgba(255,255,255,.7) inset;backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);transform:translateY(-20px) scale(.95);opacity:0;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .3s ease}
+.mobile-search-overlay.open .mobile-search-box{transform:translateY(0) scale(1);opacity:1;transition:transform .45s cubic-bezier(.22,1,.36,1) .05s,opacity .4s ease .05s}
 .mobile-search-box input{flex:1;border:none;outline:none;font-size:1rem;font-family:inherit;background:transparent;color:var(--g800)}
-.mobile-search-box input::placeholder{color:var(--g400)}
-.mobile-search-close{background:none;border:none;font-size:1.6rem;color:var(--g500);cursor:pointer;padding:8px 12px;line-height:1}
+.mobile-search-box input::placeholder{color:var(--g600);font-weight:500}
+.mobile-search-close{background:rgba(0,0,0,.1);border:none;font-size:1.3rem;font-weight:700;color:var(--g800);cursor:pointer;width:34px;height:34px;display:flex;align-items:center;justify-content:center;line-height:1;border-radius:50%;transition:background .2s}
+.mobile-search-close:hover{background:rgba(0,0,0,.18)}
 
 /* ============================================
    HERO
@@ -333,7 +338,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   .hero-content h1{font-size:1.2rem}
   .hero-sub{text-align:center;font-size:.75rem;margin-bottom:10px}
   .search-wrap,.hot-tags{display:none}
-  .card-grid{grid-template-columns:1fr}
+  .card-grid{grid-template-columns:repeat(2,1fr)}
   .b-row{grid-template-columns:repeat(3,1fr)}
   .two-col{grid-template-columns:1fr;gap:28px}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
