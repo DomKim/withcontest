@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>위드콘테스트 — 대한민국 콩쿨·대회 정보 플랫폼</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========== TOP BAR ========== -->
+  <div class="topbar">
+    <div class="inner">
+      <div class="topbar-left">
+        <span class="live-dot"></span>
+        <span>접속 <strong class="count-up" data-target="127">0</strong></span>
+        <span class="divider">|</span>
+        <span>오늘 <strong class="count-up" data-target="2481">0</strong></span>
+        <span class="divider">|</span>
+        <span>전체 <strong class="count-up" data-target="1284530">0</strong></span>
+      </div>
+      <div class="topbar-right">
+        <a href="#">새글</a>
+        <a href="#">FAQ</a>
+        <a href="#">문의</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="inner">
+      <a href="/" class="logo">W<span>위드콘테스트</span></a>
+      <nav class="gnb">
+        <a href="#" class="active">홈</a>
+        <a href="#">콩쿨정보</a>
+        <a href="#">대회일정</a>
+        <a href="#">뉴스</a>
+        <a href="#">레슨</a>
+        <a href="#">커뮤니티</a>
+      </nav>
+      <div class="header-right">
+        <a href="#" class="btn-ghost">로그인</a>
+        <a href="#" class="btn-gold">대회등록</a>
+      </div>
+      <div class="mobile-btns">
+        <button class="mobile-search-btn" aria-label="검색">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="mobile-toggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 모바일 검색 팝업 -->
+  <div class="mobile-search-overlay" id="mobileSearch">
+    <div class="mobile-search-box">
+      <input type="text" placeholder="대회명, 주최기관으로 검색">
+      <button class="mobile-search-close" aria-label="닫기">&times;</button>
+    </div>
+  </div>
+
+  <!-- ========== HERO + 광고 통합 ========== -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="inner hero-grid">
+      <!-- 왼쪽: 검색 영역 -->
+      <div class="hero-content">
+        <h1>모든 콩쿨, <em>한 곳에서.</em></h1>
+        <p class="hero-sub">피아노 · 성악 · 관현악 · 미술 · 무용 — 전국 대회 정보를 검색하세요</p>
+        <div class="search-wrap">
+          <input type="text" placeholder="대회명, 주최기관으로 검색">
+          <button>검색</button>
+        </div>
+        <div class="hot-tags">
+          <a href="#">#서울콩쿨</a>
+          <a href="#">#전국피아노</a>
+          <a href="#">#2026성악</a>
+          <a href="#">#미술대전</a>
+        </div>
+      </div>
+      <!-- 오른쪽: S+A 광고 -->
+      <div class="hero-ads">
+        <div class="ad-card ad-s">
+          <span class="ad-label s-label">S</span>
+          <p class="ad-title">프리미엄 광고</p>
+          <p class="ad-desc">최상위 노출</p>
+        </div>
+        <div class="ad-card ad-a">
+          <div class="ad-a-slider" id="adSlider">
+            <div class="ad-a-track">
+              <div class="ad-a-slide">
+                <span class="ad-label a-label">A</span>
+                <p class="ad-title">광고 구간 ①</p>
+                <p class="ad-desc">대회를 알리세요</p>
+              </div>
+              <div class="ad-a-slide">
+                <span class="ad-label a-label">A</span>
+                <p class="ad-title">광고 구간 ②</p>
+                <p class="ad-desc">참가자에게 노출</p>
+              </div>
+              <div class="ad-a-slide">
+                <span class="ad-label a-label">A</span>
+                <p class="ad-title">광고 구간 ③</p>
+                <p class="ad-desc">합리적 비용</p>
+              </div>
+            </div>
+            <div class="slider-dots">
+              <button class="dot active" data-i="0"></button>
+              <button class="dot" data-i="1"></button>
+              <button class="dot" data-i="2"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 카테고리 바 -->
+    <div class="inner">
+      <div class="cat-bar">
+        <button class="cat active" data-cat="all">전체</button>
+        <button class="cat" data-cat="piano">피아노</button>
+        <button class="cat" data-cat="vocal">성악</button>
+        <button class="cat" data-cat="orch">관현악</button>
+        <button class="cat" data-cat="comp">작곡</button>
+        <button class="cat" data-cat="art">미술</button>
+        <button class="cat" data-cat="dance">무용</button>
+        <button class="cat" data-cat="musical">뮤지컬</button>
+        <button class="cat" data-cat="trad">국악</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== B등급 배너 ========== -->
+  <section class="b-banners">
+    <div class="inner">
+      <div class="b-row">
+        <div class="b-slot"><span class="b-badge">B</span><span>광고 구간 ①</span></div>
+        <div class="b-slot"><span class="b-badge">B</span><span>광고 구간 ②</span></div>
+        <div class="b-slot"><span class="b-badge">B</span><span>광고 구간 ③</span></div>
+        <div class="b-slot"><span class="b-badge">B</span><span>광고 구간 ④</span></div>
+        <div class="b-slot"><span class="b-badge">B</span><span>광고 구간 ⑤</span></div>
+        <div class="b-slot"><span class="b-badge">B</span><span>광고 구간 ⑥</span></div>
+        <div class="b-slot"><span class="b-badge">B</span><span>광고 구간 ⑦</span></div>
+        <div class="b-slot"><span class="b-badge">B</span><span>광고 구간 ⑧</span></div>
+        <div class="b-slot"><span class="b-badge">B</span><span>광고 구간 ⑨</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 마감임박 ========== -->
+  <section class="sec">
+    <div class="inner">
+      <div class="sec-head">
+        <h2>핫콩쿨 <small>HOT</small></h2>
+        <a href="#" class="more">전체보기 →</a>
+      </div>
+      <div class="card-grid">
+        <article class="card urgent-card">
+          <div class="card-header">
+            <span class="dday red">D-3</span>
+            <span class="card-cat c-piano">피아노</span>
+          </div>
+          <h3>제25회 서울국제피아노콩쿨</h3>
+          <p class="card-org">한국피아노학회</p>
+          <div class="card-info">
+            <span>2026.03.20 마감</span>
+            <span>서울 예술의전당</span>
+          </div>
+          <div class="card-tags"><span>유치부</span><span>초등부</span><span>중등부</span></div>
+        </article>
+        <article class="card">
+          <div class="card-header">
+            <span class="dday orange">D-5</span>
+            <span class="card-cat c-vocal">성악</span>
+          </div>
+          <h3>제18회 전국성악콩쿨</h3>
+          <p class="card-org">대한성악협회</p>
+          <div class="card-info">
+            <span>2026.03.22 마감</span>
+            <span>부산 문화회관</span>
+          </div>
+          <div class="card-tags"><span>고등부</span><span>대학부</span><span>일반부</span></div>
+        </article>
+        <article class="card">
+          <div class="card-header">
+            <span class="dday orange">D-7</span>
+            <span class="card-cat c-orch">관현악</span>
+          </div>
+          <h3>2026 대한민국 관현악 콩쿨</h3>
+          <p class="card-org">한국관현악협회</p>
+          <div class="card-info">
+            <span>2026.03.24 마감</span>
+            <span>대전 예술원</span>
+          </div>
+          <div class="card-tags"><span>초등부</span><span>중등부</span></div>
+        </article>
+        <article class="card">
+          <div class="card-header">
+            <span class="dday">D-12</span>
+            <span class="card-cat c-art">미술</span>
+          </div>
+          <h3>2026 전국학생미술대전</h3>
+          <p class="card-org">한국미술교육학회</p>
+          <div class="card-info">
+            <span>2026.03.29 마감</span>
+            <span>전국 온·오프라인</span>
+          </div>
+          <div class="card-tags"><span>제한없음</span></div>
+        </article>
+        <article class="card">
+          <div class="card-header">
+            <span class="dday red">D-2</span>
+            <span class="card-cat c-dance">무용</span>
+          </div>
+          <h3>제10회 전국무용콩쿨</h3>
+          <p class="card-org">한국무용협회</p>
+          <div class="card-info">
+            <span>2026.03.19 마감</span>
+            <span>서울 국립극장</span>
+          </div>
+          <div class="card-tags"><span>초등부</span><span>중등부</span><span>고등부</span></div>
+        </article>
+        <article class="card">
+          <div class="card-header">
+            <span class="dday orange">D-6</span>
+            <span class="card-cat c-piano">피아노</span>
+          </div>
+          <h3>제32회 부산피아노콩쿨</h3>
+          <p class="card-org">부산피아노학회</p>
+          <div class="card-info">
+            <span>2026.03.23 마감</span>
+            <span>부산 시민회관</span>
+          </div>
+          <div class="card-tags"><span>유치부</span><span>초등부</span></div>
+        </article>
+        <article class="card">
+          <div class="card-header">
+            <span class="dday">D-10</span>
+            <span class="card-cat c-vocal">성악</span>
+          </div>
+          <h3>2026 춘계성악경연대회</h3>
+          <p class="card-org">전국음악교육연합</p>
+          <div class="card-info">
+            <span>2026.03.27 마감</span>
+            <span>대구 콘서트홀</span>
+          </div>
+          <div class="card-tags"><span>대학부</span><span>일반부</span></div>
+        </article>
+        <article class="card">
+          <div class="card-header">
+            <span class="dday">D-14</span>
+            <span class="card-cat c-orch">관현악</span>
+          </div>
+          <h3>제7회 청소년 오케스트라 페스티벌</h3>
+          <p class="card-org">대한관현악진흥회</p>
+          <div class="card-info">
+            <span>2026.03.31 마감</span>
+            <span>인천 아트센터</span>
+          </div>
+          <div class="card-tags"><span>중등부</span><span>고등부</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 캘린더 ========== -->
+  <section class="sec sec-alt">
+    <div class="inner">
+      <div class="sec-head">
+        <h2>2026 콩쿨 캘린더</h2>
+        <a href="#" class="more">연간일정 →</a>
+      </div>
+      <div class="cal-view-toggle">
+        <button class="cal-view-btn active" data-view="list">리스트</button>
+        <button class="cal-view-btn" data-view="calendar">달력</button>
+      </div>
+      <div class="month-bar">
+        <button class="mo">1월</button><button class="mo">2월</button>
+        <button class="mo active">3월</button><button class="mo">4월</button>
+        <button class="mo">5월</button><button class="mo">6월</button>
+        <button class="mo">7월</button><button class="mo">8월</button>
+        <button class="mo">9월</button><button class="mo">10월</button>
+        <button class="mo">11월</button><button class="mo">12월</button>
+      </div>
+      <!-- 리스트 뷰 -->
+      <div class="cal-list show" id="calList">
+        <a href="#" class="cal-row">
+          <span class="cal-date"><strong>15</strong>3월</span>
+          <span class="cal-cat c-piano">피아노</span>
+          <span class="cal-title">제12회 춘천피아노콩쿨</span>
+          <span class="cal-region">강원</span>
+        </a>
+        <a href="#" class="cal-row">
+          <span class="cal-date"><strong>20</strong>3월</span>
+          <span class="cal-cat c-vocal">성악</span>
+          <span class="cal-title">서울국제성악콩쿨 본선</span>
+          <span class="cal-region">서울</span>
+        </a>
+        <a href="#" class="cal-row">
+          <span class="cal-date"><strong>24</strong>3월</span>
+          <span class="cal-cat c-orch">관현악</span>
+          <span class="cal-title">대한민국 관현악 콩쿨</span>
+          <span class="cal-region">대전</span>
+        </a>
+        <a href="#" class="cal-row">
+          <span class="cal-date"><strong>28</strong>3월</span>
+          <span class="cal-cat c-art">미술</span>
+          <span class="cal-title">전국학생미술대전 접수 마감</span>
+          <span class="cal-region">전국</span>
+        </a>
+      </div>
+      <!-- 달력 뷰 -->
+      <div class="calendar-grid" id="calGrid">
+        <div class="cal-header-row">
+          <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+        </div>
+        <div class="cal-body" id="calBody">
+          <!-- JS로 생성 -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 최신 등록 ========== -->
+  <section class="sec sec-alt">
+    <div class="inner">
+      <div class="sec-head">
+        <h2>최신 등록</h2>
+        <a href="#" class="more">전체보기 →</a>
+      </div>
+      <div class="list-wrap">
+        <a href="#" class="list-row">
+          <span class="list-num">01</span>
+          <span class="list-cat c-piano">피아노</span>
+          <span class="list-title">제32회 한국피아노학회 정기 콩쿨</span>
+          <span class="list-region">서울</span>
+          <span class="list-date">2026.04.15</span>
+          <span class="new-badge">N</span>
+        </a>
+        <a href="#" class="list-row">
+          <span class="list-num">02</span>
+          <span class="list-cat c-vocal">성악</span>
+          <span class="list-title">2026 대한민국 성악 신인 콩쿨</span>
+          <span class="list-region">대구</span>
+          <span class="list-date">2026.04.20</span>
+          <span class="new-badge">N</span>
+        </a>
+        <a href="#" class="list-row">
+          <span class="list-num">03</span>
+          <span class="list-cat c-orch">관현악</span>
+          <span class="list-title">제15회 부산 청소년 오케스트라 경연대회</span>
+          <span class="list-region">부산</span>
+          <span class="list-date">2026.05.01</span>
+          <span class="new-badge">N</span>
+        </a>
+        <a href="#" class="list-row">
+          <span class="list-num">04</span>
+          <span class="list-cat c-art">미술</span>
+          <span class="list-title">2026 전국학생미술대전</span>
+          <span class="list-region">전국</span>
+          <span class="list-date">2026.05.10</span>
+          <span class="new-badge">N</span>
+        </a>
+        <a href="#" class="list-row">
+          <span class="list-num">05</span>
+          <span class="list-cat c-dance">무용</span>
+          <span class="list-title">제21회 전국무용경연대회</span>
+          <span class="list-region">광주</span>
+          <span class="list-date">2026.05.20</span>
+          <span class="new-badge">N</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 콩쿨 찾기 ========== -->
+  <section class="sec">
+    <div class="inner">
+      <div class="sec-head"><h2>콩쿨 찾기</h2></div>
+      <div class="filter-box">
+        <div class="filter-row">
+          <label>부문</label>
+          <div class="chips">
+            <button class="chip on">전체</button><button class="chip">피아노</button><button class="chip">성악</button><button class="chip">관현악</button><button class="chip">작곡</button><button class="chip">뮤지컬</button><button class="chip">국악</button><button class="chip">미술</button><button class="chip">무용</button><button class="chip">사진</button>
+          </div>
+        </div>
+        <div class="filter-row">
+          <label>대상</label>
+          <div class="chips">
+            <button class="chip on">전체</button><button class="chip">유치부</button><button class="chip">초등부</button><button class="chip">중등부</button><button class="chip">고등부</button><button class="chip">대학부</button><button class="chip">일반부</button>
+          </div>
+        </div>
+        <div class="filter-row">
+          <label>지역</label>
+          <div class="chips">
+            <button class="chip on">전체</button><button class="chip">서울</button><button class="chip">경기</button><button class="chip">인천</button><button class="chip">부산</button><button class="chip">대구</button><button class="chip">대전</button><button class="chip">광주</button><button class="chip">온라인</button>
+          </div>
+        </div>
+        <button class="filter-btn">검색하기</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 뉴스 & 레슨 ========== -->
+  <section class="sec">
+    <div class="inner two-col">
+      <div>
+        <div class="sec-head"><h2>콩쿨뉴스</h2><a href="#" class="more">더보기 →</a></div>
+        <div class="mini-list">
+          <a href="#"><span>2026 국제 피아노 콩쿨 수상자 발표</span><span class="ml-date">03.12</span></a>
+          <a href="#"><span>올해 성악 콩쿨 참가자 역대 최다</span><span class="ml-date">03.10</span></a>
+          <a href="#"><span>전국학생미술대전 일정 확정</span><span class="ml-date">03.08</span></a>
+          <a href="#"><span>제5회 온라인 콩쿨 개최 안내</span><span class="ml-date">03.05</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="sec-head"><h2>레슨모집</h2><a href="#" class="more">더보기 →</a></div>
+        <div class="mini-list">
+          <a href="#"><span class="ml-tag c-piano">피아노</span><span>서울대 출신 피아노 레슨 (강남)</span><span class="ml-date">03.13</span></a>
+          <a href="#"><span class="ml-tag c-vocal">성악</span><span>입시 성악 전문 레슨 (분당)</span><span class="ml-date">03.12</span></a>
+          <a href="#"><span class="ml-tag c-orch">바이올린</span><span>바이올린 콩쿨 준비반 모집</span><span class="ml-date">03.11</span></a>
+          <a href="#"><span class="ml-tag c-art">미술</span><span>미술대회 포트폴리오 특강</span><span class="ml-date">03.09</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="cta">
+    <div class="inner">
+      <div class="cta-box">
+        <h2>대회를 주최하시나요?</h2>
+        <p>위드콘테스트에 등록하고 전국의 참가자에게 알리세요.</p>
+        <div class="cta-btns">
+          <a href="#" class="btn-gold">대회 등록 신청</a>
+          <a href="#" class="btn-ghost-w">요금 안내</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STATS ========== -->
+  <section class="stats">
+    <div class="inner stats-grid">
+      <div class="stat"><strong class="stat-num" data-count="1284">0</strong><span>등록 대회</span></div>
+      <div class="stat"><strong class="stat-num" data-count="52340">0</strong><span>월 방문자</span></div>
+      <div class="stat"><strong class="stat-num" data-count="386">0</strong><span>등록 기관</span></div>
+      <div class="stat"><strong class="stat-num" data-count="12">0</strong><span>분야</span></div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="inner footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">W<span>위드콘테스트</span></a>
+        <p>대한민국 콩쿨·대회 정보 플랫폼</p>
+      </div>
+      <div class="footer-links">
+        <div><h4>서비스</h4><a href="#">콩쿨정보</a><a href="#">대회일정</a><a href="#">콩쿨뉴스</a><a href="#">레슨모집</a></div>
+        <div><h4>지원</h4><a href="#">FAQ</a><a href="#">1:1문의</a><a href="#">대회등록 안내</a><a href="#">광고문의</a></div>
+        <div><h4>법적고지</h4><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">이메일무단수집거부</a></div>
+      </div>
+    </div>
+    <div class="inner"><p class="copyright">&copy; 2026 위드콘테스트 WITHCONTEST. All rights reserved.</p></div>
+  </footer>
+
+  <!-- ========== 좌우 사이드 A등급 광고 ========== -->
+  <div class="side-ads left">
+    <div class="side-ad">
+      <span class="ad-label a-label">A</span>
+      <span class="ad-title">광고</span>
+    </div>
+  </div>
+  <div class="side-ads right">
+    <div class="side-ad">
+      <span class="ad-label a-label">A</span>
+      <span class="ad-title">광고</span>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
