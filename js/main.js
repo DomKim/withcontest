@@ -177,18 +177,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── 모바일 메뉴 ──
   const toggle = document.querySelector('.mobile-toggle');
-  const gnb = document.querySelector('.gnb');
-  if (toggle && gnb) {
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (toggle && mobileMenu) {
     toggle.addEventListener('click', () => {
-      const open = gnb.style.display === 'flex';
-      Object.assign(gnb.style, {
-        display: open ? '' : 'flex',
-        flexDirection: 'column', position: 'absolute',
-        top: '60px', left: '0', right: '0',
-        background: '#fff', padding: open ? '' : '16px 24px',
-        gap: '10px', borderBottom: open ? '' : '1px solid #e5e5e5',
-        boxShadow: open ? '' : '0 4px 12px rgba(0,0,0,.08)',
-        zIndex: '99'
+      const isOpen = mobileMenu.classList.toggle('open');
+      toggle.classList.toggle('active', isOpen);
+    });
+    // 메뉴 링크 클릭시 닫기
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        toggle.classList.remove('active');
       });
     });
   }
